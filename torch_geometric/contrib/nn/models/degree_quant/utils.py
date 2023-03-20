@@ -28,7 +28,7 @@ class IntegerQuantizer(nn.Module):
         self.register_buffer("min_val", torch.tensor([]))
         self.register_buffer("max_val", torch.tensor([]))
         self.momentum = momentum
-        self.num_bits = num_bits
+        self.num_bits = qtype_to_num_bits[qtype]
         self.signed = signed
         self.symmetric = symmetric
         self.eps = torch.finfo(torch.float32).eps
