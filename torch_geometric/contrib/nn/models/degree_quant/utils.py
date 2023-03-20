@@ -52,7 +52,7 @@ class IntegerQuantizer(nn.Module):
             self.sample_fn = lambda x: x
         else:
             assert percentile is not None
-            self.sample_fn = lambda x: sample_tensor(sample, x)
+            self.sample_fn = lambda x: IntegerQuantizer.sample_tensor(sample, x)
 
     @staticmethod
     def sample_tensor(prop, x, sample_cutoff=1000):
